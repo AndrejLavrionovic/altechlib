@@ -11,5 +11,6 @@ namespace altechlib.Data
         public string isbn { get; set; }
         public string name { get; set; }
         public string author { get; set; }
+        public string content { get; set; }
     }
 }
