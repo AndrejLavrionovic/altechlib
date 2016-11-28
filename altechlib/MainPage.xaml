@@ -6,8 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:viewModels="using:ViewModel"
-    xmlns:converters="using:Converters"
+    xmlns:viewModels="using:altechlib.ViewModel"
+    xmlns:converters="using:altechlib.Converters"
     >
 
     <Page.Resources>
@@ -28,7 +28,7 @@
 
 
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewModels:BooksViewModel" >
+                    <DataTemplate x:DataType="vm:BooksViewModel" >
                         <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
                     </DataTemplate>
                 </ListView.ItemTemplate>
