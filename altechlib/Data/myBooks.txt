@@ -1,0 +1,20 @@
+﻿[
+	{
+		"isbn":"1223456789",
+		"name":"Iris Web Framework",
+		"author":"Gerasimos Maropoulos",
+		"content":"Hello World"
+	},
+	{
+		"isbn":"1223456799",
+		"name":"Windows Phone Programming in C#",
+		"author":"Rob Miles",
+		"content":"This notes are an introduction to Windows Phone development for anyone learning to program."
+	},
+	{
+		"isbn":"1223456798",
+		"name":"GoF Design Patterns - with examles using Java and UML2",
+		"author":"Benneth Chistiansson",
+		"content":"This book is the result of a joing effort of the authors with an equal contibution from all."
+	}
+]

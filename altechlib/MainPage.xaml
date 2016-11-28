@@ -5,9 +5,50 @@
     xmlns:local="using:altechlib"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:viewModels="using:ViewModel"
+    >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
 
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <ListView  x:Name="MainList" 
+              ItemsSource="{x:Bind organizaton.Books, Mode=OneWay}"  
+              SelectedIndex="{x:Bind organizaton.SelectedIndex, Mode=TwoWay}" 
+              MinWidth="250" Margin="5">
+
+
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewModels:BooksViewModel" >
+                        <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Orientation="Vertical"
+                    Visibility="{x:Bind organizaton.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
+            <TextBox 
+              Text="{x:Bind organizaton.SelectedBook.name, Mode=TwoWay, FallbackValue=''}" 
+              Margin="5" />
+            <!--<TextBox 
+              Text="{x:Bind Organization.SelectedPerson.Age, Mode=TwoWay, FallbackValue='18'}" 
+              Margin="5" />
+                <TextBox 
+              Text="{x:Bind Organization.SelectedPerson.Address, Mode=TwoWay, FallbackValue=''}" 
+              Margin="5" />
+                <TextBox 
+              Text="{x:Bind Organization.SelectedPerson.PhoneNumber, Mode=TwoWay, FallbackValue=''}" 
+              Margin="5" />
+                <TextBox 
+              Text="{x:Bind Organization.SelectedPerson.EmailAddress, Mode=TwoWay, FallbackValue=''}" 
+              Margin="5" />
+                <Button Content="Delete" Click="{x:Bind Organization.Delete}" Margin="5" />-->
+        </StackPanel>
     </Grid>
 </Page>
