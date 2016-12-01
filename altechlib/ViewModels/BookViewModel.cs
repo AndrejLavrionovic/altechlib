@@ -3,7 +3,7 @@ using System;
 
 namespace altechlib.ViewModels
 {
-    class BookViewModel : NotificationBase<Book>
+    public class BookViewModel : NotificationBase<Book>
     {
         // constructor
         public BookViewModel(Book book = null) : base(book) { }

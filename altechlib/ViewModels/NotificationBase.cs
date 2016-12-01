@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace altechlib.ViewModels
 {
-    class NotificationBase : INotifyPropertyChanged
+    public class NotificationBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

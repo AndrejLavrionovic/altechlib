@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace altechlib.Data
 {
-    class Book
+    public class Book
     {
         public string isbn { get; set; }
         public string name { get; set; }
@@ -12,7 +12,7 @@ namespace altechlib.Data
         public string content { get; set; }
     }
 
-    class FakeService
+    public class FakeService
     {
         public static String Name = "Fake Data Service.";
 

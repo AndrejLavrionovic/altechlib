@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace altechlib.Models
 {
-    class Organization
+    public class Organization
     {
         public List<Book> books { get; set; }
         public String dbname { get; set; }
