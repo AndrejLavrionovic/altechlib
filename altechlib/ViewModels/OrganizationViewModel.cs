@@ -52,7 +52,7 @@ namespace altechlib.ViewModels
             get { return (_SelectedIndex >= 0) ? _Books[_SelectedIndex] : null; }
         }
 
-        public void Add()
+        public void AddBook()
         {
             var book = new BookViewModel();
             book.PropertyChanged += Book_OnNotifyPropertyChanged;
@@ -61,7 +61,7 @@ namespace altechlib.ViewModels
             SelectedIndex = Books.IndexOf(book);
         }
 
-        public void Delete()
+        public void DeleteBook()
         {
             if (SelectedIndex != -1)
             {
