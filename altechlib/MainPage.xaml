@@ -6,7 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:viewModels="using:altechlib.ViewModels">
+    xmlns:viewModels="using:altechlib.ViewModels"
+    xmlns:converters="using:altechlib.Converters">
+
+    <Page.Resources>
+        <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
@@ -28,7 +33,8 @@
             <Button Content="Add" Click="{x:Bind  organization.AddBook}" Margin="5"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="2" Orientation="Vertical">
+        <StackPanel Grid.Column="2" Orientation="Vertical"
+                Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
             <TextBox 
               Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
