@@ -14,6 +14,7 @@
         <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />
     </Page.Resources>
 
+    <!-- Page Grid -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -25,7 +26,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        
+        <!-- Burger Button and Page Title-->
         <RelativePanel>
             <Button x:Name="btnHamburger"
                     FontFamily="Segoe MDL2 Assets"
@@ -42,38 +43,54 @@
                        />
         </RelativePanel>
         
+        <!-- Favorites Panel-->
+        <StackPanel Grid.Row="1" Orientation="Vertical">
 
-        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="100,5,5,5" Grid.Row="1">
-            <ListView  x:Name="MainList" 
-              ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
-              SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
-              MinWidth="250">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewModels:BookViewModel" >
-                        <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button Content="Add" Click="{x:Bind  organization.AddBook}" Margin="5"/>
-        </StackPanel>
+            <!-- Favorites.Title -->
+            <StackPanel>
+                <TextBlock Text="My Favorite Books" Margin="100,10,10,10"/>
+            </StackPanel>
+            
+            <!-- Favorites.Body -->
+            <StackPanel Orientation="Horizontal">
+                <!--Favorites.Body.Booknames-->
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="100,5,5,5">
+                    <ListView  x:Name="MainList" 
+                          ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
+                          SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
+                          MinWidth="250">
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="viewModels:BookViewModel" >
+                                <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Button Content="Add" Click="{x:Bind  organization.AddBook}" Margin="5"/>
+                </StackPanel>
 
-        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="1"
+                <!--Favorites.Body.Bookdetails-->
+                <StackPanel Grid.Column="2" Orientation="Vertical"
                 Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
-            <TextBox 
+                    <TextBox 
               Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
-            <TextBox 
+                    <TextBox 
               Text="{x:Bind organization.SelectedBook.Name, Mode=TwoWay, FallbackValue='18'}" 
               Margin="5" />
-            <TextBox 
+                    <TextBox 
               Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
-            <TextBox 
+                    <TextBox 
               Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
-            <Button Content="Delete" Click="{x:Bind organization.DeleteBook}" Margin="5" />
+                    <Button Content="Delete" Click="{x:Bind organization.DeleteBook}" Margin="5" />
+                </StackPanel>
+
+            </StackPanel>
+           
         </StackPanel>
 
+        <!-- Side Navigation Menu -->
         <SplitView x:Name="splSideMenu"
                    Grid.Row="1"
                    DisplayMode="CompactOverlay"
