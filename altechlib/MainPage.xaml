@@ -15,40 +15,15 @@
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical">
-            <ListView  x:Name="MainList" 
-              ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
-              SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
-              MinWidth="250" Margin="5">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="viewModels:BookViewModel" >
-                        <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <Button Content="Add" Click="{x:Bind  organization.AddBook}" Margin="5"/>
-        </StackPanel>
-
-        <StackPanel Grid.Column="2" Orientation="Vertical"
-                Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
-            <TextBox 
-              Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" 
-              Margin="5" />
-            <TextBox 
-              Text="{x:Bind organization.SelectedBook.Name, Mode=TwoWay, FallbackValue='18'}" 
-              Margin="5" />
-            <TextBox 
-              Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" 
-              Margin="5" />
-            <TextBox 
-              Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" 
-              Margin="5" />
-            <Button Content="Delete" Click="{x:Bind organization.DeleteBook}" Margin="5" />
+        <!-- Here is button that navigate on Home page-->
+        <StackPanel
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            <Button 
+                Name="btnStart"
+                Click="btnStart_Click"
+                Content="Start Library"/>
         </StackPanel>
     </Grid>
 </Page>

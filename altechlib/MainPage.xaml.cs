@@ -13,9 +13,11 @@ namespace altechlib
         public MainPage()
         {
             this.InitializeComponent();
-            organization = new OrganizationViewModel("Library");
         }
 
-        public OrganizationViewModel organization { get; set; }
+        private void btnStart_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(HomePage));
+        }
     }
 }
