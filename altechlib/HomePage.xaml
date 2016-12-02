@@ -20,11 +20,34 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0" Orientation="Vertical">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        
+        <RelativePanel>
+            <Button x:Name="btnHamburger"
+                    FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE700;"
+                    FontSize="36"
+                    Click="btnHamburger_Click"
+                    />
+            <TextBlock x:Name="tblAccountName"
+                       FontFamily="Verdana"
+                       FontSize="36"
+                       FontWeight="Normal"
+                       Foreground="#303030"
+                       Margin="100, 0, 0, 0"
+                       />
+        </RelativePanel>
+        
+
+        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="100,5,5,5" Grid.Row="1">
             <ListView  x:Name="MainList" 
               ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
               SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
-              MinWidth="250" Margin="5">
+              MinWidth="250">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewModels:BookViewModel" >
                         <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
@@ -34,7 +57,7 @@
             <Button Content="Add" Click="{x:Bind  organization.AddBook}" Margin="5"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="2" Orientation="Vertical"
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="1"
                 Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
             <TextBox 
               Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" 
@@ -50,6 +73,93 @@
               Margin="5" />
             <Button Content="Delete" Click="{x:Bind organization.DeleteBook}" Margin="5" />
         </StackPanel>
+
+        <SplitView x:Name="splSideMenu"
+                   Grid.Row="1"
+                   DisplayMode="CompactOverlay"
+                   OpenPaneLength="300"
+                   CompactPaneLength="56"
+                   HorizontalAlignment="Left">
+
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single"
+                         x:Name="lbIcons"
+                         SelectionChanged="lbIcons_SelectionChanged"
+                         Background="#9BFFA7">
+                    <ListBoxItem Name="lbiHome">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE80F;"
+                            FontSize="36"
+                            />
+                            <TextBlock Text="Home"
+                                       FontSize="24"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Top"
+                                   />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="lbiTransactions">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE8DF;"
+                            FontSize="36"
+                            />
+                            <TextBlock Text="Transactions"
+                                       FontSize="24"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Top"
+                                   />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="lbiBorrow">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE109;"
+                            FontSize="36"
+                            />
+                            <TextBlock Text="Borrow"
+                                       FontSize="24"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Top"
+                                   />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="lbiLend">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE108;"
+                            FontSize="36"
+                            />
+                            <TextBlock Text="Lend"
+                                       FontSize="24"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Top"
+                                   />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="lbiBack">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
+                            FontFamily="Segoe MDL2 Assets"
+                            Text="&#xE096;"
+                            FontSize="36"
+                            />
+                            <TextBlock Text="Change Account"
+                                       FontSize="24"
+                                       Margin="20,0,0,0"
+                                       VerticalAlignment="Top"
+                                   />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+
+        </SplitView>
 
     </Grid>
 </Page>

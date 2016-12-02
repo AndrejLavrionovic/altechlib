@@ -29,5 +29,31 @@ namespace altechlib
             organization = new OrganizationViewModel("Library");
         }
         public OrganizationViewModel organization { get; set; }
+
+        private void lbIcons_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (lbiHome.IsSelected)
+            {
+                this.Frame.Navigate(typeof(HomePage));
+            }
+            else if (lbiTransactions.IsSelected)
+            {
+                this.Frame.Navigate(typeof(HomePage));
+            }
+            else if (lbiBorrow.IsSelected)
+            {
+                this.Frame.Navigate(typeof(HomePage));
+            }
+            else if (lbiLend.IsSelected)
+            {
+                this.Frame.Navigate(typeof(HomePage));
+            }
+        }
+
+        private void btnHamburger_Click(object sender, RoutedEventArgs e)
+        {
+            splSideMenu.IsPaneOpen = !splSideMenu.IsPaneOpen;
+        }
     }
 }
