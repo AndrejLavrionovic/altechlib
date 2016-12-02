@@ -33,7 +33,7 @@
                     FontSize="36"
                     Click="btnHamburger_Click"
                     />
-            <TextBlock x:Name="tblAccountName"
+            <TextBlock x:Name="tblApplicationName"
                        FontFamily="Verdana"
                        FontSize="36"
                        FontWeight="Normal"

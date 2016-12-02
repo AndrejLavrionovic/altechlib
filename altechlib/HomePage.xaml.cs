@@ -27,6 +27,9 @@ namespace altechlib
         {
             this.InitializeComponent();
             organization = new OrganizationViewModel("Library");
+
+            // Title of Application
+            tblApplicationName.Text = "My Application";
         }
         public OrganizationViewModel organization { get; set; }
 
