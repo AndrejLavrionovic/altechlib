@@ -14,6 +14,13 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using altechlib.Data;
 
 namespace altechlib
 {
@@ -30,6 +37,13 @@ namespace altechlib
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            // if Database is not exists
+            // Create database when app starts
+            using (var db = new LibraryContext())
+            {
+                db.Database.Migrate();
+            }
         }
 
         /// <summary>
