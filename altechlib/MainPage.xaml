@@ -9,7 +9,7 @@
     xmlns:viewModels="using:altechlib.ViewModels"
     xmlns:converters="using:altechlib.Converters">
 
-    <!--Version: 1.0-->
+    <!--Version: 1.1.0-->
     <Page.Resources>
         <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />
     </Page.Resources>
