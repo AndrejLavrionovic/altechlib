@@ -30,7 +30,6 @@ namespace altechlib.ViewModels
             set { SetProperty(ref _Books, value); }
         }
 
-        String _Name;
         public String Name
         {
             get { return organization.dbname; }
