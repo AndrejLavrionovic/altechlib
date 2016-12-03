@@ -72,19 +72,23 @@
                             Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
                     <Image
                         Source="{x:Bind organization.SelectedBook.Image, Mode=OneWay}"
-                        Height="150"/>
+                        Height="150"
+                        Margin="0,5,20,0"/>
 
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock
-                            Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}"
-                            Margin="5" />
-                        <TextBlock
-                            Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}"
-                            Margin="5" />
-                        <TextBlock
-                            Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}"
-                            Margin="5" />
-                    </StackPanel>
+                    <ListView>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ISBN:" Width="100"/>
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Title:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Author:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                    </ListView>
 
                 </StackPanel>
                 
