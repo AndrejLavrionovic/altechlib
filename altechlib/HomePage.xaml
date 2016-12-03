@@ -61,11 +61,10 @@
                           MinWidth="250">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="viewModels:BookViewModel" >
-                                <TextBlock Text="{x:Bind Name, Mode=OneWay}" />
+                                <TextBlock Text="{x:Bind Title, Mode=OneWay}" />
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                    <Button Content="Add" Click="{x:Bind  organization.AddBook}" Margin="5"/>
                 </StackPanel>
 
                 <!--Favorites.Body.Bookdetails-->
@@ -75,7 +74,7 @@
               Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
                     <TextBox 
-              Text="{x:Bind organization.SelectedBook.Name, Mode=TwoWay, FallbackValue='18'}" 
+              Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue='18'}" 
               Margin="5" />
                     <TextBox 
               Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" 
@@ -83,7 +82,12 @@
                     <TextBox 
               Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
-                    <Button Content="Delete" Click="{x:Bind organization.DeleteBook}" Margin="5" />
+                    <TextBox 
+              Text="{x:Bind organization.SelectedBook.Favorite, Mode=TwoWay, FallbackValue=''}" 
+              Margin="5" />
+                    <TextBox 
+              Text="{x:Bind organization.SelectedBook.Image, Mode=TwoWay, FallbackValue=''}" 
+              Margin="5" />
                 </StackPanel>
 
             </StackPanel>

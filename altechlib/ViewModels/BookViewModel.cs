@@ -14,10 +14,10 @@ namespace altechlib.ViewModels
             set { SetProperty(This.isbn, value, () => This.isbn = value); }
         }
 
-        public String Name
+        public String Title
         {
-            get { return This.name; }
-            set { SetProperty(This.name, value, () => This.name = value); }
+            get { return This.title; }
+            set { SetProperty(This.title, value, () => This.title = value); }
         }
 
         public String Author
@@ -30,6 +30,18 @@ namespace altechlib.ViewModels
         {
             get { return This.content; }
             set { SetProperty(This.content, value, () => This.content = value); }
+        }
+
+        public int Favorite
+        {
+            get { return This.favorite; }
+            set { SetProperty(This.favorite, value, () => This.favorite = value); }
+        }
+
+        public String Image
+        {
+            get { return This.img; }
+            set { SetProperty(This.img, value, () => This.img = value); }
         }
     }
 }

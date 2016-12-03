@@ -13,12 +13,12 @@ namespace altechlib.ViewModels
         {
             organization = new Organization(name);
             _SelectedIndex = -1;
-
+            
             // Load the database
             foreach (var book in organization.books)
             {
                 var np = new BookViewModel(book);
-                np.PropertyChanged += Book_OnNotifyPropertyChanged;
+                //np.PropertyChanged += Book_OnNotifyPropertyChanged;
                 _Books.Add(np);
             }
         }
@@ -52,6 +52,8 @@ namespace altechlib.ViewModels
             get { return (_SelectedIndex >= 0) ? _Books[_SelectedIndex] : null; }
         }
 
+
+        /*
         public void AddBook()
         {
             var book = new BookViewModel();
@@ -75,5 +77,6 @@ namespace altechlib.ViewModels
         {
             organization.Update((BookViewModel)sender);
         }
+        */
     }
 }

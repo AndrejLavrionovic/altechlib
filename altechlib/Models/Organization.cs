@@ -71,6 +71,7 @@ namespace altechlib.Models
                     }
                 }
                 if(nBook.favorite == 5) { gBookList.Add(nBook); }
+                //gBookList.Add(nBook);
             }
             return gBookList;
         }
