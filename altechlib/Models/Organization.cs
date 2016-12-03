@@ -1,6 +1,7 @@
 ﻿using altechlib.Data;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Data.Json;
@@ -10,67 +11,21 @@ namespace altechlib.Models
 {
     public class Organization
     {
-        public static List<Book> gBookList = new List<Book>();
         public List<Book> books { get; set; }
         public String dbname { get; set; }
 
         public Organization(String databaseName)
         {
             this.dbname = databaseName;
-            LoadData();
-            books = gBookList;
+            books = CreateBookList();
         }
 
-        public async static void LoadData()
+        private static List<Book> CreateBookList()
         {
-            await LoadLocalData();
-        }
-
-        public static async Task<List<Book>> LoadLocalData()
-        {
-            var file = await Package.Current.InstalledLocation.GetFileAsync("Data\\myBooks.txt");
-            var result = await FileIO.ReadTextAsync(file);
-
-            var jBookList = JsonArray.Parse(result);
-            return CreateBookList(jBookList);
-        }
-
-        private static List<Book> CreateBookList(JsonArray jBookList)
-        {
-            foreach(var item in jBookList)
+            using (var db = new LibraryContext())
             {
-                var oneBook = item.GetObject();
-                Book nBook = new Book();
-
-                foreach(var key in oneBook.Keys)
-                {
-                    IJsonValue value;
-                    if(!oneBook.TryGetValue(key, out value))
-                        continue;
-
-                    switch (key)
-                    {
-                        case "isbn":
-                            nBook.Isbn = value.GetString();
-                            break;
-                        case "title":
-                            nBook.Title = value.GetString();
-                            break;
-                        case "content":
-                            nBook.Content = value.GetString();
-                            break;
-                        case "favorite":
-                            nBook.Favorite = Convert.ToInt16(value.GetNumber());
-                            break;
-                        case "img":
-                            nBook.Image = value.GetString();
-                            break;
-                    }
-                }
-                if(nBook.Favorite == 5) { gBookList.Add(nBook); }
-                //gBookList.Add(nBook);
+                return db.Books.ToList();
             }
-            return gBookList;
         }
 
         /*

@@ -21,13 +21,19 @@ namespace altechlib.ViewModels
             get { return This.Title; }
             set { SetProperty(This.Title, value, () => This.Title = value); }
         }
-        /*
+
+        public String Genre
+        {
+            get { return This.Genre; }
+            set { SetProperty(This.Genre, value, () => This.Genre = value); }
+        }
+        
         public String Author
         {
-            get { return This.author; }
-            set { SetProperty(This.author, value, () => This.author = value); }
+            get { return getAuthor(This.Author); }
+            set { SetProperty(This.Author.Name, value, () => This.Author.Name = value); }
         }
-        */
+        
 
         public String Content
         {
@@ -45,6 +51,11 @@ namespace altechlib.ViewModels
         {
             get { return This.Image; }
             set { SetProperty(This.Image, value, () => This.Image = value); }
+        }
+
+        private String getAuthor(Author author)
+        {
+            return author.Name;
         }
     }
 }
