@@ -1,4 +1,5 @@
-﻿using System;
+﻿using altechlib.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,9 @@ namespace altechlib
         public AddNewBook()
         {
             this.InitializeComponent();
+
+            // Title of page
+            tblApplicationName.Text = "Add New Book";
         }
 
 
@@ -57,5 +61,39 @@ namespace altechlib
         }
         //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         // End Side Navigation Menu Section
+
+        // Button - Add New Book
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            using (var db = new LibraryContext())
+            {
+                // Author obj
+                var author = new Author { Name = tblAuthor.Text };
+                // Book obj
+                var book = new Book
+                {
+                    Isbn = tblIsbn.Text,
+                    Title = tblTitle.Text,
+                    Genre = tblGenre.Text,
+                    Content = tblContent.Text,
+                    Image = tblImage.Text,
+                    Favorite = 1,
+                    Author = author
+                };
+
+                // Save into db
+                db.Authors.Add(author);
+                db.Books.Add(book);
+                db.SaveChanges();
+
+                // Empty fields
+                tblAuthor.Text = "";
+                tblTitle.Text = "";
+                tblIsbn.Text = "";
+                tblGenre.Text = "";
+                tblContent.Text = "";
+                tblImage.Text = "";
+            }
+        }
     }
 }

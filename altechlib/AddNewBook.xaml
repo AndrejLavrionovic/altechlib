@@ -30,6 +30,40 @@
                        Margin="100, 0, 0, 0"
                        />
         </RelativePanel>
+        
+        <!-- 
+        Main Section.
+        Form for new book.
+        -->
+        <StackPanel Orientation="Vertical" Margin="100,100,5,5" Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Width="150" Text="Author:" />
+                <TextBox Width="300" x:Name="tblAuthor" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Width="150" Text="Title:" />
+                <TextBox Width="300" x:Name="tblTitle"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Width="150" Text="ISBN:" />
+                <TextBox Width="300" x:Name="tblIsbn" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Width="150" Text="Genre" />
+                <TextBox Width="300" x:Name="tblGenre" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Width="150" Text="Content" />
+                <TextBox Width="300" x:Name="tblContent" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20">
+                <TextBlock Width="150" Text="Image" />
+                <TextBox Width="300" x:Name="tblImage" />
+            </StackPanel>
+            <Button
+                x:Name="btnAdd"
+                Content="Add New Book" Click="btnAdd_Click" />
+        </StackPanel>
 
         <!-- Side Navigation Menu -->
         <SplitView x:Name="splSideMenu"
