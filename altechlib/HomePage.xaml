@@ -85,8 +85,8 @@
                             <TextBlock Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Author:" Width="100" />
-                            <TextBlock Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" />
+                            <TextBlock Text="Favorite:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Favorite, Mode=TwoWay, FallbackValue=''}" />
                         </StackPanel>
                     </ListView>
 

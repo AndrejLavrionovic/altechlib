@@ -12,51 +12,39 @@ namespace altechlib.ViewModels
 
         public String Isbn
         {
-            get { return This.isbn; }
-            set { SetProperty(This.isbn, value, () => This.isbn = value); }
+            get { return This.Isbn; }
+            set { SetProperty(This.Isbn, value, () => This.Isbn = value); }
         }
 
         public String Title
         {
-            get { return This.title; }
-            set { SetProperty(This.title, value, () => This.title = value); }
+            get { return This.Title; }
+            set { SetProperty(This.Title, value, () => This.Title = value); }
         }
-
+        /*
         public String Author
         {
             get { return This.author; }
             set { SetProperty(This.author, value, () => This.author = value); }
         }
+        */
 
         public String Content
         {
-            get { return This.content; }
-            set { SetProperty(This.content, value, () => This.content = value); }
+            get { return This.Content; }
+            set { SetProperty(This.Content, value, () => This.Content = value); }
         }
 
         public int Favorite
         {
-            get { return This.favorite; }
-            set { SetProperty(This.favorite, value, () => This.favorite = value); }
+            get { return This.Favorite; }
+            set { SetProperty(This.Favorite, value, () => This.Favorite = value); }
         }
 
         public String Image
         {
-            get { return This.img; }
-            set { SetProperty(This.img, value, () => This.img = value); }
-        }
-
-        public BitmapImage MyImage
-        {
-            get { return getImage(This.img); }
-        }
-
-        private BitmapImage getImage(String path)
-        {
-            BitmapImage src = new BitmapImage();
-            //src.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-            src.UriSource = new Uri(path, UriKind.Relative);
-            return null;
+            get { return This.Image; }
+            set { SetProperty(This.Image, value, () => This.Image = value); }
         }
     }
 }

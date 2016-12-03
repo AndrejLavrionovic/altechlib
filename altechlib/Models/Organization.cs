@@ -51,26 +51,23 @@ namespace altechlib.Models
                     switch (key)
                     {
                         case "isbn":
-                            nBook.isbn = value.GetString();
+                            nBook.Isbn = value.GetString();
                             break;
                         case "title":
-                            nBook.title = value.GetString();
-                            break;
-                        case "author":
-                            nBook.author = value.GetString();
+                            nBook.Title = value.GetString();
                             break;
                         case "content":
-                            nBook.content = value.GetString();
+                            nBook.Content = value.GetString();
                             break;
                         case "favorite":
-                            nBook.favorite = Convert.ToInt16(value.GetNumber());
+                            nBook.Favorite = Convert.ToInt16(value.GetNumber());
                             break;
                         case "img":
-                            nBook.img = value.GetString();
+                            nBook.Image = value.GetString();
                             break;
                     }
                 }
-                if(nBook.favorite == 5) { gBookList.Add(nBook); }
+                if(nBook.Favorite == 5) { gBookList.Add(nBook); }
                 //gBookList.Add(nBook);
             }
             return gBookList;

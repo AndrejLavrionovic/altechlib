@@ -6,11 +6,15 @@ namespace altechlib.Data
 {
     public class Book
     {
-        public string isbn { get; set; }
-        public string title { get; set; }
-        public string author { get; set; }
-        public string content { get; set; }
-        public int favorite { get; set; }
-        public string img { get; set; }
+        public int BookId { get; set; }
+        public string Isbn { get; set; }
+        public string Title { get; set; }
+        public string Genre { get; set; }
+        public string Content { get; set; }
+        public int Favorite { get; set; }
+        public string Image { get; set; }
+
+        public int AuthorId { get; set; }
+        public Author Author { get; set; }
     }
 }
