@@ -1,5 +1,4 @@
-﻿using altechlib.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,18 +20,16 @@ namespace altechlib
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class AddNewBook : Page
     {
-        public HomePage()
+        public AddNewBook()
         {
             this.InitializeComponent();
-            organization = new OrganizationViewModel("Library");
-
-            // Title of Application
-            tblApplicationName.Text = "My Application";
         }
-        public OrganizationViewModel organization { get; set; }
 
+
+        // Side Navigation Menu Section
+        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         private void lbIcons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -58,5 +55,7 @@ namespace altechlib
         {
             splSideMenu.IsPaneOpen = !splSideMenu.IsPaneOpen;
         }
+        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        // End Side Navigation Menu Section
     }
 }
