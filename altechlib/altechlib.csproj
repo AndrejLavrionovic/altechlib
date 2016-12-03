@@ -127,7 +127,6 @@
     <None Include="altechlib_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\MyBooks.txt" />
     <Content Include="img\book1.png" />
     <Content Include="img\book2.png" />
     <Content Include="img\book3.png" />
