@@ -68,6 +68,27 @@
                 </StackPanel>
 
                 <!--Favorites.Body.Bookdetails-->
+                <StackPanel Orientation="Horizontal" Grid.Column="2"
+                            Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
+                    <Image
+                        Source="{x:Bind organization.SelectedBook.Image, Mode=OneWay}"
+                        Height="150"/>
+
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock
+                            Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}"
+                            Margin="5" />
+                        <TextBlock
+                            Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}"
+                            Margin="5" />
+                        <TextBlock
+                            Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}"
+                            Margin="5" />
+                    </StackPanel>
+
+                </StackPanel>
+                
+                <!--
                 <StackPanel Grid.Column="2" Orientation="Vertical"
                 Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
                     <TextBox 
@@ -92,6 +113,7 @@
                            Margin="5"
                            Width="100"/>
                 </StackPanel>
+                -->
 
             </StackPanel>
            
