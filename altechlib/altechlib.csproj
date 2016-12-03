@@ -117,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\MyBooks.txt" />
+    <Content Include="img\book1.png" />
+    <Content Include="img\book2.png" />
+    <Content Include="img\book3.png" />
+    <Content Include="img\book4.png" />
+    <Content Include="img\book5.png" />
+    <Content Include="img\book6.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -140,6 +146,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
