@@ -1,5 +1,7 @@
 ﻿using altechlib.Data;
 using System;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 namespace altechlib.ViewModels
 {
@@ -42,6 +44,19 @@ namespace altechlib.ViewModels
         {
             get { return This.img; }
             set { SetProperty(This.img, value, () => This.img = value); }
+        }
+
+        public BitmapImage MyImage
+        {
+            get { return getImage(This.img); }
+        }
+
+        private BitmapImage getImage(String path)
+        {
+            BitmapImage src = new BitmapImage();
+            //src.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
+            src.UriSource = new Uri(path, UriKind.Relative);
+            return null;
         }
     }
 }

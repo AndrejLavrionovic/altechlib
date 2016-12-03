@@ -5,7 +5,7 @@
 		"author": "Andrej Lavrinovic",
 		"content": "BlaBlaBlablaBafvoerfojewoirngvernejnfiuerho",
 		"favorite": 5,
-		"img": "/img/book1.png"
+		"img": "img\\book1.png"
 	},
 	{
 		"isbn": "100002",
@@ -13,7 +13,7 @@
 		"author": "Tatjana Buta",
 		"content": "hbvnkjhsbc;ojbjenfbwiejfpoewjngvhjewnjfpowekjigubfjowiehgiuerjhf",
 		"favorite": 3,
-		"img": "/img/book2.png"
+		"img": "img\\book2.png"
 	},
 	{
 		"isbn": "100003",
@@ -21,7 +21,7 @@
 		"author": "Aleksej Belousov",
 		"content": "ljahnvrgfnbvjlhsncoefdnblrnfwefjuiwrhguiejfivriutg feiojfh ieurhfe jgfreg",
 		"favorite": 5,
-		"img": "/img/book3.png"
+		"img": "img\\book3.png"
 	},
 	{
 		"isbn": "100004",
@@ -29,7 +29,7 @@
 		"author": "Andrej Lavrinovic",
 		"content": "BlaBlaBlablaBafvoerfojewoirngvernejnfiuerho",
 		"favorite": 2,
-		"img": "/img/book4.png"
+		"img": "img\\book4.png"
 	},
 	{
 		"isbn": "100005",
@@ -37,7 +37,7 @@
 		"author": "Andrej Lavrinovic",
 		"content": "BlaBlaBlablaBafvoerfojewoirngvernejnfiuerho",
 		"favorite": 1,
-		"img": "/img/book5.png"
+		"img": "img\\book5.png"
 	},
 	{
 		"isbn": "100006",
@@ -45,6 +45,6 @@
 		"author": "Alexandr Pushkin",
 		"content": "BlaBlaBlablaBafvoerfojewoirngvernejnfiuerho",
 		"favorite": 5,
-		"img": "/img/book6.png"
+		"img": "img\\book6.png"
 	}
 ]

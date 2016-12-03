@@ -88,6 +88,9 @@
                     <TextBox 
               Text="{x:Bind organization.SelectedBook.Image, Mode=TwoWay, FallbackValue=''}" 
               Margin="5" />
+                    <Image Source="{x:Bind organization.SelectedBook.MyImage}"
+                           Margin="5"
+                           Width="100"/>
                 </StackPanel>
 
             </StackPanel>
