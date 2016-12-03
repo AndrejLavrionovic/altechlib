@@ -11,6 +11,6 @@ namespace altechlib.Data
         public string author { get; set; }
         public string content { get; set; }
         public int favorite { get; set; }
-        public int img { get; set; }
+        public string img { get; set; }
     }
 }
