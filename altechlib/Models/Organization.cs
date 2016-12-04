@@ -14,17 +14,33 @@ namespace altechlib.Models
         public List<Book> books { get; set; }
         public String dbname { get; set; }
 
-        public Organization(String databaseName)
-        {
-            this.dbname = databaseName;
-            books = CreateBookList();
-        }
+        public const int GET_BY_TITLE = 1;
+        public const int GET_BY_FAVORITE = 2;
 
-        private static List<Book> CreateBookList()
+        public Organization() {}
+
+        public List<Book> CreateBookList()
         {
             using (var db = new LibraryContext())
             {
                 return db.Books.ToList();
+            }
+        }
+
+        public List<Book> CreateBookListByFavorites(int lvlFavorites)
+        {
+            using (var db = new LibraryContext())
+            {
+                return db.Books.Where(bk => bk.Favorite.Equals(lvlFavorites)).ToList();
+            }
+        }
+
+        // get books that match given name in book title
+        public List<Book> getBooksByNmae(String name)
+        {
+            using(var db = new LibraryContext())
+            {
+                return db.Books.Where(bk => bk.Title.Contains("name")).ToList();
             }
         }
 

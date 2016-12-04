@@ -1,5 +1,7 @@
-﻿using altechlib.Models;
+﻿using altechlib.Data;
+using altechlib.Models;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 
@@ -7,15 +9,19 @@ namespace altechlib.ViewModels
 {
     public class OrganizationViewModel : NotificationBase
     {
-        Organization organization;
+        Organization org;
 
-        public OrganizationViewModel(String name)
+        // constructor #1
+        public OrganizationViewModel()
         {
-            organization = new Organization(name);
             _SelectedIndex = -1;
+
+            List<Book> books = new List<Book>();
+            
+            books = getBooksByFavorites(1);
             
             // Load the database
-            foreach (var book in organization.books)
+            foreach (var book in books)
             {
                 var np = new BookViewModel(book);
                 //np.PropertyChanged += Book_OnNotifyPropertyChanged;
@@ -23,16 +29,50 @@ namespace altechlib.ViewModels
             }
         }
 
+        // Parameterized constructor
+        public OrganizationViewModel(String titlename)
+        {
+            _SelectedIndex = -1;
+
+            List<Book> books = new List<Book>();
+
+            books = OVMgetBooksByNmae(titlename);
+
+            // Load the database
+            foreach (var book in books)
+            {
+                var np = new BookViewModel(book);
+                //np.PropertyChanged += Book_OnNotifyPropertyChanged;
+                _Books.Add(np);
+            }
+        }
+
+        // helper for retrieveing books
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        // 1) for default constructor
+        private List<Book> getBooksByFavorites(int lvlFavorite)
+        {
+            org = new Organization();
+            return org.CreateBookListByFavorites(lvlFavorite);
+        }
+
+        // 2) for parameterazed constructor
+        private List<Book> OVMgetBooksByNmae(String title)
+        {
+            org = new Organization();
+
+            if (title != null)
+                return org.getBooksByNmae(title);
+            else return new List<Book>();
+        }
+        //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        // end helper for retrieveing books
+
         ObservableCollection<BookViewModel> _Books = new ObservableCollection<BookViewModel>();
         public ObservableCollection<BookViewModel> Books
         {
             get { return _Books; }
             set { SetProperty(ref _Books, value); }
-        }
-
-        public String Name
-        {
-            get { return organization.dbname; }
         }
 
         int _SelectedIndex;

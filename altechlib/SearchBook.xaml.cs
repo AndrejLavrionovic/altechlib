@@ -1,4 +1,6 @@
-﻿using System;
+﻿using altechlib.Data;
+using altechlib.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,17 +24,25 @@ namespace altechlib
     /// </summary>
     public sealed partial class SearchBook : Page
     {
+
+        // page variables
+        public Book foundBook = null;
+        public List<Book> foundbooklist = null;
+        public OrganizationViewModel organization;
+        string booktitle = null;
+
         public SearchBook()
         {
             this.InitializeComponent();
+            organization = new OrganizationViewModel(booktitle);
 
 
             // Title of Application
             tblApplicationName.Text = "Search & Manage Book";
         }
 
-
-
+        // Side Navigation Menu Section
+        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         private void lbIcons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -57,6 +67,14 @@ namespace altechlib
         private void btnHamburger_Click(object sender, RoutedEventArgs e)
         {
             splSideMenu.IsPaneOpen = !splSideMenu.IsPaneOpen;
+        }
+        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        // End Side Navigation Menu Section
+
+        // Search button click
+        private void btnSearchBook_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

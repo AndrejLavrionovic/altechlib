@@ -1,4 +1,5 @@
-﻿using altechlib.ViewModels;
+﻿using altechlib.Models;
+using altechlib.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,13 +27,16 @@ namespace altechlib
         public HomePage()
         {
             this.InitializeComponent();
-            organization = new OrganizationViewModel("Library");
+            organization = new OrganizationViewModel();
+
 
             // Title of Application
-            tblApplicationName.Text = "My Application";
+            tblApplicationName.Text = "Library Home";
         }
         public OrganizationViewModel organization { get; set; }
 
+        // Side Navigation Menu Section
+        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         private void lbIcons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -58,5 +62,7 @@ namespace altechlib
         {
             splSideMenu.IsPaneOpen = !splSideMenu.IsPaneOpen;
         }
+        //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        // End Side Navigation Menu Section
     }
 }
