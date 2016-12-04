@@ -47,7 +47,7 @@ namespace altechlib
             }
             else if (lbiBorrow.IsSelected)
             {
-                this.Frame.Navigate(typeof(HomePage));
+                this.Frame.Navigate(typeof(SearchBook));
             }
             else if (lbiLend.IsSelected)
             {

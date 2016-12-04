@@ -1,5 +1,4 @@
-﻿using altechlib.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -21,17 +20,18 @@ namespace altechlib
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class SearchBook : Page
     {
-        public HomePage()
+        public SearchBook()
         {
             this.InitializeComponent();
-            organization = new OrganizationViewModel("Library");
+
 
             // Title of Application
-            tblApplicationName.Text = "My Application";
+            tblApplicationName.Text = "Search & Manage Book";
         }
-        public OrganizationViewModel organization { get; set; }
+
+
 
         private void lbIcons_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
