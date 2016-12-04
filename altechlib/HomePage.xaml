@@ -54,7 +54,7 @@
             <!-- Favorites.Body -->
             <StackPanel Orientation="Horizontal">
                 <!--Favorites.Body.Booknames-->
-                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="100,5,5,5">
+                <StackPanel Grid.Column="0" Orientation="Vertical" Margin="100,5,5,5" Width="300">
 
                     <ListView  x:Name="MainList" 
                           ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
@@ -74,7 +74,8 @@
                     <Image
                         Source="{x:Bind organization.SelectedBook.Image, Mode=OneWay}"
                         Height="150"
-                        Margin="0,5,20,0"/>
+                        Margin="0,5,20,0"
+                        VerticalAlignment="Top"/>
 
                     <ListView>
                         <StackPanel Orientation="Horizontal">

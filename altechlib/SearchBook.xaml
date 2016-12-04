@@ -6,13 +6,19 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    xmlns:viewModels="using:altechlib.ViewModels">
-    
-    
+    xmlns:viewModels="using:altechlib.ViewModels"
+    xmlns:converters="using:altechlib.Converters">
+
+    <Page.Resources>
+        <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />
+    </Page.Resources>
+
+
     <!-- Page Grid -->
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-            <Grid.RowDefinitions>
+
+        <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
@@ -59,19 +65,50 @@
             <StackPanel Orientation="Horizontal"
                         Margin="100,0,0,0">
                 
+                
                 <!-- Found Books List -->
-                <ListView  x:Name="lstFoundBooks" 
+                <StackPanel>
+                    <ListView  x:Name="lstFoundBooks" 
                           ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
                           SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
                           MinWidth="250">
+
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:BookViewModel" >
                             <TextBlock Text="{x:Bind Title, Mode=OneWay}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
-                
-                
+                    </ListView>
+                </StackPanel>
+
+                <!-- Book Details -->
+                <StackPanel Orientation="Horizontal" x:Name="bookDetails"
+                            Visibility="Collapsed">
+
+                    <Image
+                        x:Name="imgBookDetails"
+                        Source="{x:Bind organization.SelectedBook.Image, Mode=OneWay}"
+                        Height="150"
+                        Margin="0,5,20,0"/>
+
+                    <ListView x:Name="lstBookDetails">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="ISBN:" Width="100"/>
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Title:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Favorite:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Favorite, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                    </ListView>
+
+                </StackPanel>
+
+
             </StackPanel>
             
         </StackPanel>

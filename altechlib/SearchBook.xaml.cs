@@ -80,6 +80,11 @@ namespace altechlib
                 organization = new OrganizationViewModel(this.booktitle);
                 lstFoundBooks.ItemsSource = organization.Books;
                 lstFoundBooks.SelectedIndex = organization.SelectedIndex;
+                if(organization.SelectedBook == null)
+                    bookDetails.Visibility = Visibility.Collapsed;
+                else
+                    bookDetails.Visibility = Visibility.Visible;
+                
             }
             else
                 organization = null;
