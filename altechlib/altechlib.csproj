@@ -108,9 +108,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20161203195402_MyFirstMigration.cs" />
-    <Compile Include="Migrations\20161203195402_MyFirstMigration.designer.cs">
-      <DependentUpon>20161203195402_MyFirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\20161204210605_MyFirstMigration.cs" />
+    <Compile Include="Migrations\20161204210605_MyFirstMigration.designer.cs">
+      <DependentUpon>20161204210605_MyFirstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\LibraryContextModelSnapshot.cs" />
     <Compile Include="Models\Organization.cs" />

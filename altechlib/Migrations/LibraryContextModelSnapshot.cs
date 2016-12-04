@@ -15,24 +15,12 @@ namespace altechlib.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.0-rtm-22752");
 
-            modelBuilder.Entity("altechlib.Data.Author", b =>
-                {
-                    b.Property<int>("AuthorId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("AuthorId");
-
-                    b.ToTable("Authors");
-                });
-
             modelBuilder.Entity("altechlib.Data.Book", b =>
                 {
                     b.Property<int>("BookId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("AuthorId");
+                    b.Property<string>("Author");
 
                     b.Property<string>("Content");
 
@@ -48,17 +36,7 @@ namespace altechlib.Migrations
 
                     b.HasKey("BookId");
 
-                    b.HasIndex("AuthorId");
-
                     b.ToTable("Books");
-                });
-
-            modelBuilder.Entity("altechlib.Data.Book", b =>
-                {
-                    b.HasOne("altechlib.Data.Author", "Author")
-                        .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }
