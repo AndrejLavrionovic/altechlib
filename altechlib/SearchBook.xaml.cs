@@ -31,11 +31,13 @@ namespace altechlib
         public SearchBook()
         {
             this.InitializeComponent();
-            //organization = new OrganizationViewModel(0);
+            organization = new OrganizationViewModel(0);
 
             // Title of Application
             tblApplicationName.Text = "Search & Manage Book";
         }
+
+        public OrganizationViewModel organization { get; set; }
 
         // Side Navigation Menu Section
         //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -89,7 +91,5 @@ namespace altechlib
             else
                 organization = null;
         }
-
-        public OrganizationViewModel organization { get; set; }
     }
 }

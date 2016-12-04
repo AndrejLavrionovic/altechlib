@@ -46,7 +46,7 @@
         <StackPanel x:Name="Body" Grid.Row="1" Orientation="Vertical">
 
             <!-- 1) Serch section -->
-            <StackPanel Orientation="Vertical" Margin="100,50,0,50" Visibility="Visible">
+            <StackPanel Orientation="Vertical" Margin="100,50,0,50" Visibility="Collapsed">
                 <TextBlock Text="Search Book by Title"
                            Margin="0,0,0,20"
                            FontSize="22"/>
@@ -63,7 +63,7 @@
             
             <!-- Books section-->
             <StackPanel Orientation="Horizontal"
-                        Margin="100,0,0,0">
+                        Margin="100,100,0,0">
                 
                 
                 <!-- Found Books List -->
@@ -71,7 +71,8 @@
                     <ListView  x:Name="lstFoundBooks" 
                           ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
                           SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
-                          MinWidth="250">
+                          MinWidth="250"
+                               Margin="0,0,180,0">
 
                     <ListView.ItemTemplate>
                         <DataTemplate x:DataType="viewModels:BookViewModel" >
@@ -83,13 +84,13 @@
 
                 <!-- Book Details -->
                 <StackPanel Orientation="Horizontal" x:Name="bookDetails"
-                            Visibility="Collapsed">
+                            Visibility="{x:Bind organization.SelectedBook, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
 
                     <Image
                         x:Name="imgBookDetails"
                         Source="{x:Bind organization.SelectedBook.Image, Mode=OneWay}"
-                        Height="150"
-                        Margin="0,5,20,0"/>
+                        Height="250"
+                        Margin="20,5,20,0"/>
 
                     <ListView x:Name="lstBookDetails">
                         <StackPanel Orientation="Horizontal">
