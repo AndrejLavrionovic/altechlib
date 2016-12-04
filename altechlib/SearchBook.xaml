@@ -34,7 +34,28 @@
             </RelativePanel>
             
             <!-- Here Will be main content -->
+            
+            <!-- Here is body of content-->
+        <StackPanel x:Name="Body" Grid.Row="1" Orientation="Vertical">
 
+            <!-- 1) Serch section -->
+            <StackPanel Orientation="Vertical" Margin="100,50,0,50">
+                <TextBlock Text="Search Book by Title"
+                           Margin="0,0,0,20"
+                           FontSize="22"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="tbxBookName"
+                             Width="200"
+                             Margin="0,0,20,0"/>
+                    <Button x:Name="btnSearchBook"
+                            Content="Search"
+                            Width="100"/>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+            
 
 
             <!-- Side Navigation Menu -->
