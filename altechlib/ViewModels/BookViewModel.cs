@@ -30,8 +30,8 @@ namespace altechlib.ViewModels
         
         public String Author
         {
-            get { return getAuthor(This.Author); }
-            set { SetProperty(This.Author.Name, value, () => This.Author.Name = value); }
+            get { return This.Author; }
+            set { SetProperty(This.Author, value, () => This.Author = value); }
         }
         
 
@@ -51,11 +51,6 @@ namespace altechlib.ViewModels
         {
             get { return This.Image; }
             set { SetProperty(This.Image, value, () => This.Image = value); }
-        }
-
-        private String getAuthor(Author author)
-        {
-            return author.Name;
         }
     }
 }

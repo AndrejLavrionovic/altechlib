@@ -67,8 +67,6 @@ namespace altechlib
         {
             using (var db = new LibraryContext())
             {
-                // Author obj
-                var author = new Author { Name = tblAuthor.Text };
                 // Book obj
                 var book = new Book
                 {
@@ -78,11 +76,10 @@ namespace altechlib
                     Content = tblContent.Text,
                     Image = tblImage.Text,
                     Favorite = 1,
-                    Author = author
+                    Author = tblAuthor.Text
                 };
 
                 // Save into db
-                db.Authors.Add(author);
                 db.Books.Add(book);
                 db.SaveChanges();
 
