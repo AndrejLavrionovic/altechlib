@@ -29,9 +29,16 @@ namespace altechlib.Models
 
         public List<Book> CreateBookListByFavorites(int lvlFavorites)
         {
-            using (var db = new LibraryContext())
+            if (lvlFavorites == 0)
             {
-                return db.Books.Where(bk => bk.Favorite.Equals(lvlFavorites)).ToList();
+                return CreateBookList();
+            }
+            else
+            {
+                using (var db = new LibraryContext())
+                {
+                    return db.Books.Where(bk => bk.Favorite.Equals(lvlFavorites)).ToList();
+                }
             }
         }
 
@@ -40,7 +47,7 @@ namespace altechlib.Models
         {
             using(var db = new LibraryContext())
             {
-                return db.Books.Where(bk => bk.Title.Contains("name")).ToList();
+                return db.Books.Where(bk => bk.Title.Contains(name)).ToList();
             }
         }
 

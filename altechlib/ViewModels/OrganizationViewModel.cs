@@ -12,13 +12,13 @@ namespace altechlib.ViewModels
         Organization org;
 
         // constructor #1
-        public OrganizationViewModel()
+        public OrganizationViewModel(int lvlf)
         {
             _SelectedIndex = -1;
 
             List<Book> books = new List<Book>();
             
-            books = getBooksByFavorites(1);
+            books = getBooksByFavorites(lvlf);
             
             // Load the database
             foreach (var book in books)

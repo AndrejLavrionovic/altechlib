@@ -55,6 +55,7 @@
             <StackPanel Orientation="Horizontal">
                 <!--Favorites.Body.Booknames-->
                 <StackPanel Grid.Column="0" Orientation="Vertical" Margin="100,5,5,5">
+
                     <ListView  x:Name="MainList" 
                           ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
                           SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 

@@ -27,8 +27,7 @@ namespace altechlib
         public HomePage()
         {
             this.InitializeComponent();
-            organization = new OrganizationViewModel();
-
+            organization = new OrganizationViewModel(1);
 
             // Title of Application
             tblApplicationName.Text = "Library Home";
@@ -64,5 +63,6 @@ namespace altechlib
         }
         //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         // End Side Navigation Menu Section
+        
     }
 }

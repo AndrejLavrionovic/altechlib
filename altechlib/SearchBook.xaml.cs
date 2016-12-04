@@ -26,16 +26,12 @@ namespace altechlib
     {
 
         // page variables
-        public Book foundBook = null;
-        public List<Book> foundbooklist = null;
-        public OrganizationViewModel organization;
-        string booktitle = null;
+        String booktitle = null;
 
         public SearchBook()
         {
             this.InitializeComponent();
-            organization = new OrganizationViewModel(booktitle);
-
+            //organization = new OrganizationViewModel(0);
 
             // Title of Application
             tblApplicationName.Text = "Search & Manage Book";
@@ -71,10 +67,24 @@ namespace altechlib
         //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
         // End Side Navigation Menu Section
 
+
         // Search button click
         private void btnSearchBook_Click(object sender, RoutedEventArgs e)
         {
-
+            // 1) get booktitle
+            this.booktitle = tbxBookName.Text;
+            
+            if (!String.IsNullOrEmpty(this.booktitle)) // if not empty
+            {
+                // 2) get organization
+                organization = new OrganizationViewModel(this.booktitle);
+                lstFoundBooks.ItemsSource = organization.Books;
+                lstFoundBooks.SelectedIndex = organization.SelectedIndex;
+            }
+            else
+                organization = null;
         }
+
+        public OrganizationViewModel organization { get; set; }
     }
 }
