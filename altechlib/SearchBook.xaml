@@ -90,7 +90,8 @@
                         x:Name="imgBookDetails"
                         Source="{x:Bind organization.SelectedBook.Image, Mode=OneWay}"
                         Height="250"
-                        Margin="20,5,20,0"/>
+                        Margin="20,5,20,0"
+                        VerticalAlignment="Top"/>
 
                     <ListView x:Name="lstBookDetails">
                         <StackPanel Orientation="Horizontal">
@@ -100,6 +101,18 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Title:" Width="100" />
                             <TextBlock Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Author:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Genre:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Genre, Mode=TwoWay, FallbackValue=''}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Content:" Width="100" />
+                            <TextBlock Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Favorite:" Width="100" />
