@@ -96,9 +96,7 @@
                         Margin="20,5,20,0"
                         VerticalAlignment="Top"/>
 
-                        <ListView x:Name="lstBookDetails">
-                            <TextBlock Visibility="Collapsed" Text="{x:Bind organization.SelectedBook.BookId, Mode=TwoWay, FallbackValue=''}"
-                                       x:Name="tblBookId"/>
+                        <ListView x:Name="lstBookDetails" VerticalAlignment="Top">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="ISBN:" Width="100"/>
                                 <TextBlock Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" x:Name="tblIsbn" />
@@ -109,7 +107,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Author:" Width="100" />
-                                <TextBlock Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" />
+                                <TextBlock Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Genre:" Width="100" />
@@ -117,18 +115,19 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Content:" Width="100" />
-                                <TextBlock Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" />
+                                <TextBlock Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}"
+                                           Width="400" TextWrapping="Wrap"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Favorite:" Width="100" />
                                 <TextBlock Text="{x:Bind organization.SelectedBook.Favorite, Mode=TwoWay, FallbackValue=''}" />
                             </StackPanel>
+                            <TextBlock Visibility="Collapsed" Text="{x:Bind organization.SelectedBook.BookId, Mode=TwoWay, FallbackValue=''}"
+                                       x:Name="tblBookId"/>
                         </ListView>
 
 
-                        <ListView x:Name="lstBookUpdate" Visibility="Collapsed">
-                            <TextBlock Visibility="Collapsed" Text="{x:Bind organization.SelectedBook.BookId, Mode=TwoWay, FallbackValue=''}"
-                                       x:Name="tblBookId2"/>
+                        <ListView x:Name="lstBookUpdate" Visibility="Collapsed" VerticalAlignment="Top">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="ISBN:" Width="100"/>
                                 <TextBox Text="{x:Bind organization.SelectedBook.Isbn, Mode=TwoWay, FallbackValue=''}" x:Name="tbxIsbn" />
@@ -139,7 +138,7 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Author:" Width="100" />
-                                <TextBox Text="{x:Bind organization.SelectedBook.Title, Mode=TwoWay, FallbackValue=''}" x:Name="tbxAuthor" />
+                                <TextBox Text="{x:Bind organization.SelectedBook.Author, Mode=TwoWay, FallbackValue=''}" x:Name="tbxAuthor" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Genre:" Width="100" />
@@ -147,12 +146,15 @@
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Content:" Width="100" />
-                                <TextBox Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" x:Name="tbxContent" />
+                                <TextBox Text="{x:Bind organization.SelectedBook.Content, Mode=TwoWay, FallbackValue=''}" x:Name="tbxContent"
+                                         Width="400" TextWrapping="Wrap" AcceptsReturn="True"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="Favorite:" Width="100" />
                                 <TextBox Text="{x:Bind organization.SelectedBook.Favorite, Mode=TwoWay, FallbackValue=''}" x:Name="tbxFavorite" />
                             </StackPanel>
+                            <TextBlock Visibility="Collapsed" Text="{x:Bind organization.SelectedBook.BookId, Mode=TwoWay, FallbackValue=''}"
+                                       x:Name="tblBookId2"/>
                         </ListView>
 
                     </StackPanel>
@@ -164,6 +166,10 @@
                         <Button x:Name="btnUpdate"
                                 Content="Update"
                                 Margin="10" Click="btnUpdate_Click" />
+                        <Button x:Name="btnSave"
+                                Content="Save"
+                                Margin="10"
+                                Visibility="Collapsed" Click="btnSave_Click"/>
                     </StackPanel>
 
                 </StackPanel>

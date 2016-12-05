@@ -1,5 +1,6 @@
 ﻿using altechlib.Data;
 using altechlib.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -109,7 +110,45 @@ namespace altechlib
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+            lstBookDetails.Visibility = Visibility.Collapsed;
+            btnUpdate.Visibility = Visibility.Collapsed;
+            lstBookUpdate.Visibility = Visibility.Visible;
+            btnSave.Visibility = Visibility.Visible;
 
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            Book book;
+            // Get book
+            using (var db = new LibraryContext())
+            {
+                // Book obj
+                book = db.Books.Where(bk => bk.BookId == Convert.ToInt32(tblBookId.Text)).Single();
+            }
+
+            // Book obj
+            book.Isbn = tbxIsbn.Text;
+            book.Title = tbxTitle.Text;
+            book.Genre = tbxGenre.Text;
+            book.Content = tbxContent.Text;
+            book.Favorite = Convert.ToInt32(tbxFavorite.Text);
+            book.Author = tbxAuthor.Text;
+
+            // Update db
+            using (var dbCtx = new LibraryContext())
+            {
+                dbCtx.Entry(book).State = EntityState.Modified;
+                dbCtx.SaveChanges();
+            }
+
+            lstBookUpdate.Visibility = Visibility.Collapsed;
+            btnSave.Visibility = Visibility.Collapsed;
+
+            lstBookDetails.Visibility = Visibility.Visible;
+            btnUpdate.Visibility = Visibility.Visible;
         }
     }
 }
