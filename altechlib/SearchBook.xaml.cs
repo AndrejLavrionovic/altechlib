@@ -51,15 +51,11 @@ namespace altechlib
             }
             else if (lbiTransactions.IsSelected)
             {
-                this.Frame.Navigate(typeof(AddNewBook));
+                this.Frame.Navigate(typeof(SearchBook));
             }
             else if (lbiBorrow.IsSelected)
             {
-                this.Frame.Navigate(typeof(SearchBook));
-            }
-            else if (lbiLend.IsSelected)
-            {
-                this.Frame.Navigate(typeof(HomePage));
+                this.Frame.Navigate(typeof(AddNewBook));
             }
         }
 

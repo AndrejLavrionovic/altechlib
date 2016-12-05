@@ -99,7 +99,7 @@
                             Text="&#xE8DF;"
                             FontSize="36"
                             />
-                            <TextBlock Text="Add new book"
+                            <TextBlock Text="Manage Books"
                                        FontSize="24"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Top"
@@ -113,35 +113,7 @@
                             Text="&#xE109;"
                             FontSize="36"
                             />
-                            <TextBlock Text="Borrow"
-                                       FontSize="24"
-                                       Margin="20,0,0,0"
-                                       VerticalAlignment="Top"
-                                   />
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="lbiLend">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock 
-                            FontFamily="Segoe MDL2 Assets"
-                            Text="&#xE108;"
-                            FontSize="36"
-                            />
-                            <TextBlock Text="Lend"
-                                       FontSize="24"
-                                       Margin="20,0,0,0"
-                                       VerticalAlignment="Top"
-                                   />
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="lbiBack">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock 
-                            FontFamily="Segoe MDL2 Assets"
-                            Text="&#xE096;"
-                            FontSize="36"
-                            />
-                            <TextBlock Text="Change Account"
+                            <TextBlock Text="Add New Book"
                                        FontSize="24"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Top"

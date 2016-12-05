@@ -67,19 +67,26 @@
                 
                 
                 <!-- Found Books List -->
-                <StackPanel>
-                    <ListView  x:Name="lstFoundBooks" 
-                          ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
-                          SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
-                          MinWidth="250"
-                               Margin="0,0,180,0">
+                
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="Select book from the list:"
+                               Margin="0,0,0,30"
+                               FontSize="20"/>
+                    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListView  x:Name="lstFoundBooks" 
+                                   ItemsSource="{x:Bind organization.Books, Mode=OneWay}"  
+                                   SelectedIndex="{x:Bind organization.SelectedIndex, Mode=TwoWay}" 
+                                   MinWidth="250"
+                                   MaxHeight="500"
+                                   Margin="0,0,180,0">
 
-                    <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="viewModels:BookViewModel" >
-                            <TextBlock Text="{x:Bind Title, Mode=OneWay}" />
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                    </ListView>
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="viewModels:BookViewModel" >
+                                <TextBlock Text="{x:Bind Title, Mode=OneWay}" />
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        </ListView>
+                    </ScrollViewer>
                 </StackPanel>
 
                 <!-- Book Details -->
@@ -182,93 +189,65 @@
             
 
 
-            <!-- Side Navigation Menu -->
-            <SplitView x:Name="splSideMenu"
+        <!-- Side Navigation Menu -->
+        <SplitView x:Name="splSideMenu"
                    Grid.Row="1"
                    DisplayMode="CompactOverlay"
                    OpenPaneLength="300"
                    CompactPaneLength="56"
                    HorizontalAlignment="Left">
 
-                <SplitView.Pane>
-                    <ListBox SelectionMode="Single"
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single"
                          x:Name="lbIcons"
                          SelectionChanged="lbIcons_SelectionChanged"
                          Background="#9BFFA7">
-                        <ListBoxItem Name="lbiHome">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock 
+                    <ListBoxItem Name="lbiHome">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
                             FontFamily="Segoe MDL2 Assets"
                             Text="&#xE80F;"
                             FontSize="36"
                             />
-                                <TextBlock Text="Home"
+                            <TextBlock Text="Home"
                                        FontSize="24"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Top"
                                    />
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem Name="lbiTransactions">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock 
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="lbiTransactions">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
                             FontFamily="Segoe MDL2 Assets"
                             Text="&#xE8DF;"
                             FontSize="36"
                             />
-                                <TextBlock Text="Add new book"
+                            <TextBlock Text="Manage Books"
                                        FontSize="24"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Top"
                                    />
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem Name="lbiBorrow">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock 
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem Name="lbiBorrow">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock 
                             FontFamily="Segoe MDL2 Assets"
                             Text="&#xE109;"
                             FontSize="36"
                             />
-                                <TextBlock Text="Search Book"
+                            <TextBlock Text="Add New Book"
                                        FontSize="24"
                                        Margin="20,0,0,0"
                                        VerticalAlignment="Top"
                                    />
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem Name="lbiLend">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock 
-                            FontFamily="Segoe MDL2 Assets"
-                            Text="&#xE108;"
-                            FontSize="36"
-                            />
-                                <TextBlock Text="Lend"
-                                       FontSize="24"
-                                       Margin="20,0,0,0"
-                                       VerticalAlignment="Top"
-                                   />
-                            </StackPanel>
-                        </ListBoxItem>
-                        <ListBoxItem Name="lbiBack">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock 
-                            FontFamily="Segoe MDL2 Assets"
-                            Text="&#xE096;"
-                            FontSize="36"
-                            />
-                                <TextBlock Text="Change Account"
-                                       FontSize="24"
-                                       Margin="20,0,0,0"
-                                       VerticalAlignment="Top"
-                                   />
-                            </StackPanel>
-                        </ListBoxItem>
-                    </ListBox>
-                </SplitView.Pane>
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
 
-            </SplitView>
+        </SplitView>
 
-        </Grid>
+    </Grid>
 </Page>
