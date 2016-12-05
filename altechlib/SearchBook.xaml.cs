@@ -106,5 +106,10 @@ namespace altechlib
                 this.Frame.Navigate(typeof(SearchBook));
             }
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
