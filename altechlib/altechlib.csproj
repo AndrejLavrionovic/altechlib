@@ -90,6 +90,7 @@
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
     <None Include="App.config" />
+    <None Include="pdf\Data.And.Computer.Communications.8e.WilliamStallings.pdf" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +136,7 @@
     <Content Include="img\book4.png" />
     <Content Include="img\book5.png" />
     <Content Include="img\book6.png" />
+    <Content Include="img\book7.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

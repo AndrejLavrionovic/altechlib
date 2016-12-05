@@ -10,6 +10,12 @@ namespace altechlib.ViewModels
         // constructor
         public BookViewModel(Book book = null) : base(book) { }
 
+        public int BookId
+        {
+            get { return This.BookId; }
+            set { SetProperty(This.BookId, value, () => This.BookId = value); }
+        }
+
         public String Isbn
         {
             get { return This.Isbn; }

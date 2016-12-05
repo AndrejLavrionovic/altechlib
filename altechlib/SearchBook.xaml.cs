@@ -91,5 +91,20 @@ namespace altechlib
             else
                 organization = null;
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            using(var db = new LibraryContext())
+            {
+                // Book obj
+                Book book = db.Books.Where(bk => bk.BookId == Convert.ToInt32(tblBookId.Text)).Single();
+                // Delete from db
+                db.Books.Attach(book);
+                db.Books.Remove(book);
+                db.SaveChanges();
+
+                this.Frame.Navigate(typeof(SearchBook));
+            }
+        }
     }
 }
